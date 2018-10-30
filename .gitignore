@@ -19,23 +19,21 @@
 *.tar.gz
 
  
-
-out/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-<<<<<<< HEAD
-#ºöÂÔtarget
+
+# å¿½ç•¥target
 target/
 
-#ºöÂÔideaÅäÖÃ
+# å¿½ç•¥
 .idea/
 
 
-#ºöÂÔiml
+# å¿½ç•¥iml
 Lab1.iml
 Lab2.iml
 
-ºöÂÔout
+# å¿½ç•¥out
 out/
 
