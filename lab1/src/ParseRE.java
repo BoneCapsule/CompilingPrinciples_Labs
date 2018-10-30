@@ -1,4 +1,3 @@
-import DFA.DFA;
 import NFA.NFA;
 
 import java.util.Scanner;

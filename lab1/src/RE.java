@@ -9,7 +9,7 @@ import java.util.Map;
 public class RE {
 
     public static String[] type = {"Integer", "Indentifier", "Float"};
-    public static String[] symbol = {"NN*", "L(L|N)*", "N.NN*"};
+    public static String[] reg = {"NN*", "L(L|N)*", "N.NN*"};
 
     Map<String, String> map;
 
@@ -17,7 +17,7 @@ public class RE {
         this.map = new HashMap<>();
 
         for (int i = 0; i < type.length; i++) {
-            map.put(type[i], symbol[i]);
+            map.put(type[i], reg[i]);
         }
     }
 }

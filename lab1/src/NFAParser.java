@@ -1,6 +1,3 @@
-package NFA;
-
-
 /**
  * @Author: Lijie
  * @Description:

@@ -1,5 +1,3 @@
-package DFA;
-
 /**
  * @Author: Lijie
  * @Description:

@@ -13,32 +13,46 @@ public class State {
 
     boolean isEndState;
 
-    Map<Character, ArrayList<State>> connection;  // 通过某个终结符能达到的所有状态
+    Map<Character, ArrayList<State>> link;  // 通过某个终结符能达到的所有状态
 
     String reg_name = "";
 
     public State(String id) {
         this.id = id;
-        this.connection = new HashMap<>();
+        this.link = new HashMap<>();
     }
 
-    public ArrayList<State> getTransitions(Character c){
-        if(connection.containsKey(c))
-            return connection.get(c);
-        else
-            return new ArrayList<>();
+   public ArrayList<State> getNextStates(char c) {
+        if (link.containsKey(c)) {
+            return link.get(c);
+        }
+        return null;
+   }
+
+    public void addNextState(char c, State state){
+        if(link.containsKey(c)) {
+            link.get(c).add(state);
+        }
+        else {
+            ArrayList<State> states = new ArrayList<>();
+            states.add(state);
+            link.put(c, states);
+        }
     }
 
-    public void addNextState(Character key,State state){
-        if(connection.containsKey(key))
-        {
-            connection.get(key).add(state);
+    public void print() {
+        System.out.println("This State id is: " + this.id);
+        System.out.println("Next State:");
+        for(char c : link.keySet()){
+            System.out.print(c + ", ");
+
+            for(State s : link.get(c)) {
+                System.out.print(s.id + " and ");
+            }
+
+            System.out.print("\n");
         }
-        else{
-            ArrayList<State> list = new ArrayList<>();
-            list.add(state);
-            connection.put(key,list);
-        }
+
     }
 
 }
