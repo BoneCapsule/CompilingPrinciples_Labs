@@ -1,46 +1,15 @@
+/**
+ * @Author: Lijie
+ * @Description:
+ * @Date: Create in 10:22, 2018/11/1
+ */
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-
-    public void RE_To_NFA(String re) {
-
-
-
-    }
-
-    private String parseExpression(String expr) {
-        for (int i = 0; i < expr.length() - 1; i++) {
-            char ch = expr.charAt(i);
-            char next = expr.charAt(i + 1);
-        }
-        return null;
-    }
-
-    private boolean isLetterOrNumber(char ch){
-        if (( 'a'<=ch && ch<='z')||('A'<=ch && ch<='Z')||('0'<=ch && ch<='9')||ch=='.'||ch=='_') {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isOperator(char ch) {
-        if (ch == '*' || ch == '|' || ch == '(' || ch == ')') {
-            return true;
-        }
-        return false;
-    }
-
-    public String Legalize(String expression) {
-        //elimate illegal character
-        StringBuilder expr = new StringBuilder();
-        for(int i = 0; i < expression.length(); i++) {
-            char ch = expression.charAt(i) ;
-            if( isLetterOrNumber(ch) || isOperator(ch) ) {
-                expr.append(ch);
-            }
-        }
-        return expr.toString();
+        String case1 = "s45a 4654 11.465 884sa _daf 01asd 135dsa 0.852 Description on Labs .";
+        String case3 = "645 al55 78a8f 545.798 _jlkds _455.kla";
+        String case2 = "Lexical Analyzer Programming The programming language is not limited";
+        REParser reParser = new REParser(case1);
+        reParser.parse();
     }
 }

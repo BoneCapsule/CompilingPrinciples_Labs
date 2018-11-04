@@ -1,23 +1,30 @@
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author: Lijie
  * @Description:
- * @Date: Create in 2018/10/30 16:33
+ * @Date: Create in 15:50, 2018/10/30
  */
 public class RE {
 
-    public static String[] type = {"Integer", "Indentifier", "Float"};
-    public static String[] reg = {"NN*", "L(L|N)*", "N.NN*"};
+    private HashMap<String, String> map;
 
-    Map<String, String> map;
+    public static String[] type = {"Integer", "Identifier", "Float"};
+    public static String[] tag = {"NN*", "L(L|N)*", "N.NN*"};
 
-    public RE() {
+
+    public RE(){
         this.map = new HashMap<>();
-
-        for (int i = 0; i < type.length; i++) {
-            map.put(type[i], reg[i]);
+        for(int i = 0; i < type.length; i++){
+            map.put(type[i], tag[i]);
         }
+    }
+
+    public HashMap<String, String> getMap() {
+        return map;
+    }
+
+    public void setMap(HashMap<String, String> map) {
+        this.map = map;
     }
 }

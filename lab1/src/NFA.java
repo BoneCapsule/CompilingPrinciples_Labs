@@ -3,29 +3,22 @@ import java.util.LinkedList;
 /**
  * @Author: Lijie
  * @Description:
- * @Date: Create in 20:50, 2018/10/30
+ * @Date: Create in 16:19, 2018/10/30
  */
 public class NFA {
 
-    LinkedList<State> states;
+    private LinkedList<State> states;
 
-    public NFA() {
-        this.states = new LinkedList<>();
+    public NFA(){
+        states = new LinkedList<>();
     }
 
-    public LinkedList<State> getStates() {
-        return states;
+    public void addState(State state){
+        states.add(state) ;
     }
 
-    public void setStates(LinkedList<State> states) {
-        this.states = states;
+    public LinkedList<State> getStates(){
+        return this.states;
     }
 
-    public void print(){
-        System.out.println("NFA: ");
-        for(State s:states)
-        {
-            s.print();
-        }
-    }
 }

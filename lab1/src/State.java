@@ -9,50 +9,79 @@ import java.util.Map;
  */
 public class State {
 
-    String id;
+    private char epsilon;
 
-    boolean isEndState;
+    private int id;
 
-    Map<Character, ArrayList<State>> link;  // 通过某个终结符能达到的所有状态
+    private HashMap<Character,ArrayList<State>> link;
 
-    String reg_name = "";
+    private boolean isEndState;
 
-    public State(String id) {
+    private String tagName;
+
+    public State(int id){
         this.id = id;
         this.link = new HashMap<>();
+        tagName = "";
+        epsilon = 'ε';
     }
 
-   public ArrayList<State> getNextStates(char c) {
-        if (link.containsKey(c)) {
+    public ArrayList<State> getLinkStates(char c){
+        if(link.containsKey(c)) {
             return link.get(c);
         }
-        return null;
-   }
+        return new ArrayList<>();
+    }
 
-    public void addNextState(char c, State state){
-        if(link.containsKey(c)) {
-            link.get(c).add(state);
+    // 添加下一状态
+    public void addNextState(char key, State state){
+        if(link.containsKey(key)) {
+            link.get(key).add(state);
         }
-        else {
-            ArrayList<State> states = new ArrayList<>();
-            states.add(state);
-            link.put(c, states);
+        else{
+            ArrayList<State> list = new ArrayList<>();
+            list.add(state);
+            link.put(key,list);
         }
     }
 
-    public void print() {
+    public void setToEndState() {
+        this.isEndState = true;
+    }
+
+    // 寻找ε达到的所有状态
+    public ArrayList<State> searchEpsilon(){
+        if(link.containsKey(epsilon)) {
+            return link.get(epsilon) ;
+        }
+        return new ArrayList<>();
+    }
+
+    public void print(){
         System.out.println("This State id is: " + this.id);
-        System.out.println("Next State:");
-        for(char c : link.keySet()){
+        System.out.println("The next State: ");
+        for(char c: link.keySet()){
             System.out.print(c + ", ");
 
-            for(State s : link.get(c)) {
+            for(State s: link.get(c)) {
                 System.out.print(s.id + " and ");
             }
-
             System.out.print("\n");
         }
 
     }
+
+    public void set_name(String name){
+        this.tagName =name;
+    }
+
+    public String getTagName(){
+        return this.tagName;
+    }
+
+    public boolean isEndState() {
+        return isEndState;
+    }
+
 
 }
